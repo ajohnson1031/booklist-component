@@ -1,0 +1,122 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+}
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4em 0;
+}
+.main-container h2 {
+  margin: 2.5em 0;
+}
+.main-container .form-container {
+  width: 50%;
+  padding: 1.5em;
+  background-color: #CCC;
+  border-radius: 0.25em;
+}
+.main-container .form-container form {
+  display: flex;
+  justify-content: center;
+  height: 3em;
+}
+.main-container .form-container form input#search-box {
+  flex-grow: 1;
+  height: 100%;
+  border: none;
+  border-top-left-radius: 0.25em;
+  border-bottom-left-radius: 0.25em;
+  outline: none;
+  padding: 0 1em;
+}
+.main-container .form-container form input#search-btn {
+  height: 100%;
+  border: none;
+  border-top-right-radius: 0.25em;
+  border-bottom-right-radius: 0.25em;
+  background-color: dodgerblue;
+  color: white;
+  padding: 0 1em;
+  cursor: pointer;
+}
+.main-container .booklist-container {
+  width: 85%;
+}
+.main-container .booklist-container .book-item {
+  display: flex;
+  background-color: #eeeeee;
+  border-radius: 0.25em;
+  margin-bottom: 0.5em;
+  padding: 15px;
+}
+.main-container .booklist-container .book-item .book-image {
+  width: 15%;
+  min-width: 150px;
+  padding: 1em;
+  margin-bottom: 10px;
+}
+.main-container .booklist-container .book-item .book-image img {
+  max-width: 100px;
+}
+.main-container .booklist-container .book-item .book-details {
+  font-size: 0.9em;
+  width: 80%;
+}
+.main-container .booklist-container .book-item .book-details .book-title {
+  font-weight: bold;
+  margin: 1em 0 0.4em;
+}
+.main-container .booklist-container .book-item .book-details .book-title span {
+  font-weight: normal;
+}
+.main-container .booklist-container .book-item .book-details .book-published-year {
+  font-style: italic;
+}
+.main-container .booklist-container .book-item .book-details .book-publisher {
+  color: #989898;
+  margin: 0;
+}
+.main-container .booklist-container .book-item .book-details .book-description {
+  line-height: 1.5em;
+}
+.main-container .booklist-container .book-item .book-details .book-description a {
+  color: teal;
+  margin-left: 0.25em;
+}
+.main-container .pagination-container {
+  display: flex;
+}
+.main-container .pagination-container ul,
+.main-container .pagination-container li {
+  list-style: none;
+  margin: 0 8px;
+  cursor: pointer;
+  background-color: #E5E5E5;
+  padding: 7px;
+  border-radius: 0.125em;
+  min-width: 2.5em;
+  text-align: center;
+  transition-duration: 0.25s;
+}
+.main-container .pagination-container ul:hover,
+.main-container .pagination-container li:hover {
+  background-color: #CCC;
+}
+.main-container .pagination-container .active-page {
+  background-color: dodgerblue;
+  color: white;
+}
+.main-container .pagination-container .active-page:hover {
+  background-color: #0077ea;
+}
+.main-container .pagination-container .next-page,
+.main-container .pagination-container .prev-page {
+  background-color: transparent;
+}
+.main-container .pagination-container .next-page:hover,
+.main-container .pagination-container .prev-page:hover {
+  color: #0077ea;
+}
