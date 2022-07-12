@@ -12,7 +12,7 @@ const BookList = () => {
   const [pageCount, setPageCount] = useState(bookItems.count);
   const [resultsText, setResultsText] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
-  const maxResults = 15;
+  const maxResults = 25;
 
   const handleTextChange = (e) => {
     setQueryString(e.target.value);
@@ -44,7 +44,7 @@ const BookList = () => {
   };
 
   const handlePageChange = (e) => {
-    setStartIndex(e.selected);
+    setStartIndex(startIndex === 0 ? maxResults : e.selected * maxResults);
     handleSearchSubmit();
   };
 
