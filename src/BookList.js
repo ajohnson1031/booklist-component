@@ -44,7 +44,7 @@ const BookList = () => {
   };
 
   const handlePageChange = (e) => {
-    setStartIndex((e.selected + 1) * maxResults);
+    setStartIndex(e.selected * maxResults);
     handleSearchSubmit();
   };
 
