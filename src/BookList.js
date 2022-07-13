@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ReactPaginate from "react-paginate";
 import BookItem from "./components/BookItem";
@@ -45,8 +45,11 @@ const BookList = () => {
 
   const handlePageChange = (e) => {
     setStartIndex(e.selected * maxResults);
-    handleSearchSubmit();
   };
+
+  useEffect(() => {
+    handleSearchSubmit();
+  }, [startIndex]);
 
   return (
     <div className="main-container">
@@ -82,7 +85,6 @@ const BookList = () => {
       <ReactPaginate
         nextLabel="Next &#x2192;"
         onPageChange={handlePageChange}
-        pageRangeDisplayed={3}
         pageCount={pageCount}
         previousLabel="&#x2190; Previous"
         renderOnZeroPageCount={null}
