@@ -12,6 +12,7 @@ const BookList = () => {
   const [pageCount, setPageCount] = useState(bookItems.count);
   const [resultsText, setResultsText] = useState(null);
   const [startIndex, setStartIndex] = useState(0);
+  const [page, setPage] = useState(0);
   const maxResults = 25;
 
   const handleTextChange = (e) => {
@@ -25,7 +26,9 @@ const BookList = () => {
     }
   };
 
-  const handleSearchSubmit = () => {
+  const handleSearchSubmit = (e = null) => {
+    if (e) handlePageReset();
+
     if (!!queryString.length) {
       setLoading(true);
       axios
@@ -44,12 +47,18 @@ const BookList = () => {
   };
 
   const handlePageChange = (e) => {
+    setPage(e.selected);
     setStartIndex(e.selected * maxResults);
+  };
+
+  const handlePageReset = () => {
+    setPage(0);
+    setStartIndex(0);
   };
 
   useEffect(() => {
     handleSearchSubmit();
-  }, [startIndex]);
+  }, [page]);
 
   return (
     <div className="main-container">
@@ -58,7 +67,7 @@ const BookList = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            handleSearchSubmit();
+            handleSearchSubmit(e);
           }}
         >
           <input
@@ -86,12 +95,13 @@ const BookList = () => {
         nextLabel="Next &#x2192;"
         onPageChange={handlePageChange}
         pageCount={pageCount}
-        previousLabel="&#x2190; Previous"
+        previousLabel="&#x2190; Prev"
         renderOnZeroPageCount={null}
         containerClassName="pagination-container"
         activeClassName="active-page"
         nextClassName="next-page"
         previousClassName="prev-page"
+        forcePage={page}
       />
     </div>
   );
